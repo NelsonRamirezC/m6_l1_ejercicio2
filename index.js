@@ -41,7 +41,6 @@ app.get('/vehiculos', async function(req, res) {
     let edad = req.query.edad || 99;
     traerConductoresSinVehiculo(edad).then(listado => {
 
-        console.log(listado)
         if(listado.length == 0){
             return res.send(`<h1>No se encontraron usuarios sin autos con una edad inferior o igual a ${edad}</h1>`)
         }
@@ -54,7 +53,8 @@ app.get('/vehiculos', async function(req, res) {
         res.send(acumulador);
 
     }).catch(error => {
-        res.send("Algo a salido mal")
+        console.log(error)
+        res.status(500).send("Error interno del servidor.");
     })
 
   })

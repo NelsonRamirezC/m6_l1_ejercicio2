@@ -38,7 +38,7 @@ const traerConductoresSinVehiculo= (edad) => {
                         ON c.nombre = a.nombre_conductor
                         where edad <= ${edad} and marca is null`, (err, result) => {
             if(err){
-                reject(err)
+                return reject(err)
             }
             resolve(result.rows)
         })
