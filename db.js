@@ -7,6 +7,7 @@ const client = new Client({
   user: 'node',
   password: '123456',
 })
+
 client.connect();
 
 const traerConductores = () => {
